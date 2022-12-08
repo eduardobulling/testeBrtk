@@ -12,6 +12,28 @@ body,
   font-family: "Poppins", sans-serif;
 }
 
+.coluna-30 {
+  width: 30%;
+	height: 100px;
+  
+}
+
+.coluna-70 {
+  
+  width: 70%;
+	height: 100px;
+  
+}
+
+.container {
+  display: flex;
+  
+  gap: 10px;
+  gap: 10px 50px; /* row-gap column gap */
+  row-gap: 10px;
+  column-gap: 20px;
+}
+
 .app-container {
   background: rgb(255, 255, 255);
   height: 100%;
@@ -73,8 +95,8 @@ body,
   border: none;
   border-radius: 5px;
   outline: none;
-  background-color: #444;
-  color: #eee;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   -moz-appearance: none;
   -webkit-appearance: none;

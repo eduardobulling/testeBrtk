@@ -5,17 +5,20 @@ import { repositorieCurso } from '../repositories/repositorieCursos'
 export class CursoController{
 
     async createCurso(req: Request, res: Response) {
+		
 		const { nome, descricao, vagas, modelo} = req.body
+
+		let valida =  modelo == "online" || modelo == "presencial";
 
 		if (!nome) {
 			return res.status(400).json({ message: 'O nome é obrigatório' })
-		}else if (!vagas && vagas <= 0) {
-            return res.status(400).json({ message: 'O valor de vagas deve ser maior que 0' })
-        } else if (modelo !=  "online" ) {
-            return res.status(400).json({ message: 'Valor incorreto de modelo' })
-        }                 
-        
-
+		}
+		if (!vagas || vagas <= 0) {
+			return res.status(400).json({ message: 'O valor de vagas deve ser maior que 0' })
+		}
+		if (valida == false) {
+			return res.status(400).json({ message: 'Valor incorreto de modelo' })
+		}
 		try {
 			const newCurso = repositorieCurso.create({ nome, descricao, vagas, modelo })
 
